@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "Calistenia + BJJ",
+  "short_name": "Calis BJJ",
+  "description": "Calistenia e preparação física para jiu-jitsu. Treinos, exercícios, diário e evolução offline.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0c1513",
+  "theme_color": "#101c1a",
+  "lang": "pt-BR",
+  "icons": [
+    {"src": "./assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "./assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
