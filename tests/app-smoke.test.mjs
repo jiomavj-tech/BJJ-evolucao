@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 // Integração mínima sem navegador; testa roteamento e eventos sem DOM real.
-test('app v0.2 renderiza trilhas e registra evolução preservando chave v0.1',async()=>{
+test('app renderiza trilhas e registra evolução preservando chave v0.1',async()=>{
  const elements=new Map();const callbacks={};const store=new Map();
  const base={innerHTML:'',addEventListener(event,cb){callbacks[event]=cb;},querySelectorAll(){return[];}};
  elements.set('content',base);
@@ -17,7 +17,8 @@ test('app v0.2 renderiza trilhas e registra evolução preservando chave v0.1',a
  const old={schema:1,profile:{name:'Testador',belt:'azul',style:'guarda',goal:'forca',level:'iniciante',equipment:'corpo',days:2,readiness:3,caution:false},history:[{type:'bjj',date:'2026-11-17',duration:45,rounds:2,rpe:5}],workout:null};
  store.set('calistenia_bjj_v1',JSON.stringify(old));
  await import('../app.mjs?smoke=1');
- assert.match(base.innerHTML,/Suas progressões/);
+ assert.match(base.innerHTML,/Sua faixa/);
+ assert.match(base.innerHTML,/Você ainda não fez backup/);
  assert.match(base.innerHTML,/Testador/);
  const click=(action,id,to)=>callbacks.click({target:{closest(){return {dataset:{action,id,to}};}}});
  click('navigate',null,'habilidades'); assert.match(base.innerHTML,/Progrida com/);
@@ -26,4 +27,8 @@ test('app v0.2 renderiza trilhas e registra evolução preservando chave v0.1',a
  assert.equal(newState.skills.flexoes,1);assert.equal(newState.history.length,1);
  assert.match(base.innerHTML,/Flexão de braços/);
  click('skillsBack');assert.match(base.innerHTML,/1 de 22 etapas registradas/);
+ // Registro antigo sem id recebe id e pode ser apagado individualmente.
+ const legacyId=newState.history[0].id; assert.ok(legacyId);
+ click('navigate',null,'evolucao'); assert.match(base.innerHTML,/Progressões físicas · 1 etapa</); assert.match(base.innerHTML,/data-action="deleteSession"/);
+ click('deleteSession',legacyId); assert.equal(JSON.parse(store.get('calistenia_bjj_v1')).history.length,0);
 });

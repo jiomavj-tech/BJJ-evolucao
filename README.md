@@ -1,8 +1,14 @@
-# BJJ Evolução — v0.4 (PWA)
+# BJJ Evolução — v0.5 (PWA)
 
 Aplicativo gratuito para acompanhar a evolução no jiu-jitsu: técnicas, faixa, diário de treino e preparação física (calistenia e musculação). Funciona no celular Android pelo GitHub Pages, sem login: os dados ficam no aparelho. Código sob licença MIT.
 
 App publicado: https://jiomavj-tech.github.io/BJJ-evolucao/
+
+## O que há na v0.5
+
+- **Editar e apagar treinos um a um:** em Evolução e no Diário, cada registro tem Editar e Apagar. Na edição de BJJ, o formulário do diário abre já preenchido. Registros antigos sem identificador recebem um na primeira abertura.
+- **Backup mais fácil:** o botão "Enviar backup" abre o compartilhamento do Android (WhatsApp, Drive, e-mail). Se o compartilhamento não estiver disponível, o arquivo vai para Downloads. Quando o último backup tem 7 dias ou mais, a tela inicial mostra um aviso.
+- **Tela inicial enxuta:** em cima, registrar treino, energia do dia, faixa e técnicas em foco. Pontos de XP, progressões, lembretes e perfil foram para a aba Evolução.
 
 ## O que há na v0.4
 
