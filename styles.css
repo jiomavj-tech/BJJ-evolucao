@@ -53,3 +53,8 @@ fieldset.plain{border:0;padding:0;margin:0;min-width:0}fieldset.plain legend{fon
 .pos-diagram{margin:0 0 14px}.pos-svg{width:100%;max-width:520px;display:block;margin:8px 0 6px}
 .pos-legend{display:flex;gap:16px;font-size:12px;font-weight:700;color:#d2e2d5}.pos-legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 .count-pill button.linklike{width:auto;height:auto;background:transparent;border:0;color:var(--accent);font-size:13px;font-weight:800;padding:6px 0;flex-basis:100%;text-align:left}
+/* v0.7 — desenhos animados dos exercícios */
+.anim.drawn{aspect-ratio:320/200;background:#14231c}.anim.drawn svg,.exicon svg{width:100%;height:100%;display:block}
+.draw-svg .fr.f1{animation:animswap 2.4s steps(1,end) infinite}.draw-svg .fr.f0{animation:animswap 2.4s steps(1,end) infinite reverse}
+@media (prefers-reduced-motion:reduce){.draw-svg .fr.f1{animation:none;opacity:0}.draw-svg .fr.f0{animation:none}}
+.exicon svg text{display:none}

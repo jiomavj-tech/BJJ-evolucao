@@ -42,7 +42,15 @@ test('fotos locais existem no repositório', () => {
   let local = 0;
   for (const ex of EXERCISES) {
     const m = remoteImages(ex);
-    if (m?.offline) { local++; for (const f of m.photos) assert.ok(existsSync(new URL('../' + f.slice(2), import.meta.url)), f); }
+    if (m?.offline && m.photos) { local++; for (const f of m.photos) assert.ok(existsSync(new URL('../' + f.slice(2), import.meta.url)), f); }
   }
-  assert.ok(local >= 20, `fotos offline: ${local}`);
+  assert.ok(local >= 27, `fotos offline: ${local}`);
+});
+
+test('todo exercício tem imagem: foto, desenho ou guia de drill', async () => {
+  const { bjjDiagram } = await import('../visuals.mjs');
+  const missing = EXERCISES.filter(ex => !remoteImages(ex) && !bjjDiagram(ex)).map(ex => ex.id);
+  assert.deepEqual(missing, []);
+  const remote = EXERCISES.filter(ex => remoteImages(ex) && !remoteImages(ex).offline).map(ex => ex.id);
+  assert.deepEqual(remote, [], 'todas as imagens principais devem funcionar offline');
 });

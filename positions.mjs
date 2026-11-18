@@ -79,8 +79,8 @@ const TECH_POS = {
 export const POSITION_KEYS = Object.keys(POS);
 export function positionFor(techId) { const t = TECH_POS[techId]; return t ? { key: t[0], you: t[1], label: POS[t[0]].label } : null; }
 
-const YOU = '#b6ec74', PARTNER = '#f2a65e';
-function figure(f, color, front) {
+export const YOU = '#b6ec74', PARTNER = '#f2a65e';
+export function figure(f, color, front) {
   const line = pts => `M ${pts.map(p => p.join(' ')).join(' L ')}`;
   const sw = front ? 9 : 8;
   return `<g stroke="${color}" stroke-width="${sw}" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="${front ? 1 : .92}">`

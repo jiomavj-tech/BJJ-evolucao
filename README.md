@@ -1,8 +1,14 @@
-# BJJ Evolução — v0.6 (PWA)
+# BJJ Evolução — v0.7 (PWA)
 
 Aplicativo gratuito para acompanhar a evolução no jiu-jitsu: técnicas, faixa, diário de treino e preparação física (calistenia e musculação). Funciona no celular Android pelo GitHub Pages, sem login: os dados ficam no aparelho. Código sob licença MIT.
 
 App publicado: https://jiomavj-tech.github.io/BJJ-evolucao/
+
+## O que há na v0.7
+
+- **Todos os 39 exercícios têm imagem, e todas funcionam offline:** 28 com fotos (início e fim alternando, como gif) e 11 com desenhos animados próprios (rotação torácica, respiração, aperto de toalha, remada isométrica, sprawl, polichinelo sem salto, bird dog, troca de quadril 90/90, shrimp, levantada técnica e troca de base).
+- Quando a foto é de uma variação (outro equipamento), a legenda avisa. Ex.: "na foto, com halteres".
+- Em bird dog e troca de quadril 90/90, a foto do RepDB continua aparecendo como referência extra, guardada no celular depois da primeira vez.
 
 ## O que há na v0.6
 
