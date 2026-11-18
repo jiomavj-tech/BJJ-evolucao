@@ -1,0 +1,17 @@
+CALISTENIA + BJJ 0.3 — ATUALIZAÇÃO ANDROID
+
+1. No aplicativo 0.1/0.2, abra AJUSTES e baixe o BACKUP JSON.
+2. Extraia este arquivo ZIP no celular.
+3. Envie os arquivos extraídos à raiz do repositório:
+   https://github.com/jiomavj-tech/BJJ-evolucao
+4. Preserve a pasta assets/ e substitua os arquivos de mesmo nome.
+5. Confirme o commit e a publicação no GitHub Pages.
+6. Abra com internet:
+   https://jiomavj-tech.github.io/BJJ-evolucao/
+7. No Início, clique VER CONQUISTAS, depois CONFIGURAR LEMBRETES.
+8. Abra EXERCÍCIOS e veja as imagens de execução nos exercícios mapeados.
+9. Confira seus registros antigos em EVOLUÇÃO.
+
+LEMBRE-SE: os avisos do aplicativo funcionam enquanto ele está aberto.
+Use Google Agenda para notificações agendadas com o app fechado.
+Não habilite hidratação por obrigação: siga sede e necessidade física.

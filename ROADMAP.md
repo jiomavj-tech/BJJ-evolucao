@@ -1,25 +1,21 @@
-# Roadmap — Calistenia + BJJ
+# Plano de evolução — Calistenia + BJJ
 
-## v0.1 — Entregue
-- PWA instalável, exercícios, treino por perfil, diário BJJ, timer e backup local.
+## v0.1: concluída / instalada
+PWA, plano, exercícios textuais, diário BJJ, rounds, estatísticas e armazenamento local.
 
-## v0.2 — Implementada no pacote (a publicação depende do GitHub)
-- Seis trilhas de habilidades com metas educacionais e progressão manual.
-- Alertas de carga semanal com histórico de jiu-jitsu e ajuste conservador do número de sessões.
-- Guias ilustrados esquemáticos para movimentos selecionados.
-- Compatibilidade com histórico/backups 0.1, sem troca de schema.
-- Testes de regras de negócio e sintaxe.
+## v0.2: incorporada à v0.3
+Seis progressões, guia esquemático de movimentos, controle de carga semanal BJJ.
 
-## v0.3 — Próxima etapa
-- Agenda semanal combinando aulas no tatame e treinos físicos.
-- RPE por série, deload opcional e progressão por desempenho real.
-- Aperfeiçoar recursos para guardeiros, passadores e praticantes de quedas.
-- Avaliação técnica de exercícios por profissional qualificado.
+## v0.3: implementação disponível para publicação
+- XP, nível, 7 medalhas, meta semanal e sequência de semanas.
+- Cronômetro de sessão e descanso opcional.
+- Rotina de treino/pausas, link Google Agenda e agenda ICS recorrente.
+- 16 exercícios com imagens de referência RepDB; BJJ com três esquemas próprios; ausência de visual explicitada.
+- Compatível com registros locais já existentes.
 
-## v0.4 — Planejada
-- Demonstrações em vídeo próprias ou devidamente licenciadas; áudio de instruções.
-- Experiência acessível, controles de tamanho de texto e vídeos offline opcionais.
-
-## v1.0 — Planejada
-- CI, auditoria de segurança, testes multiplataforma, política de privacidade e distribuição estável.
-- Se for integrar código de apps externos, auditar upstream e cumprir licenças antes.
+## v0.4: prioridades
+- Conferir no Android real a versão e persistência após publicação; auditar URLs das imagens com rede móvel.
+- Fotografias/vídeos próprios autorizados para drills de BJJ e demais exercícios sem visual.
+- Lembretes periódicos com notificações push após estudo de infraestrutura e consentimento.
+- Interface de sessão exercício a exercício com revisão da execução, plano semanal inteligente e evolução de cargas.
+- Importação/exportação aprimorada e teste formal de acessibilidade.

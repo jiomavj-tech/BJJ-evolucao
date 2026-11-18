@@ -8,7 +8,7 @@ test('app v0.2 renderiza trilhas e registra evolução preservando chave v0.1',a
  elements.set('content',base);
  elements.set('toast',{textContent:'',style:{display:'none'}});
  elements.set('settings-shortcut',{addEventListener(){}});
- globalThis.document={getElementById(id){return elements.get(id)||{checked:true,textContent:'',style:{},value:''};},querySelector(){return {addEventListener(){}}},querySelectorAll(){return[];}};
+ globalThis.document={hidden:false,addEventListener(){},getElementById(id){return elements.get(id)||{checked:true,textContent:'',style:{},value:''};},querySelector(){return {addEventListener(){}}},querySelectorAll(){return[];}};
  globalThis.localStorage={getItem:k=>store.get(k)||null,setItem:(k,v)=>{store.set(k,v);}};
  globalThis.window={addEventListener(){},scrollTo(){}};
  Object.defineProperty(globalThis,'navigator',{value:{},configurable:true});

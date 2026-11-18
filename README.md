@@ -1,101 +1,61 @@
-# Calistenia + BJJ — PWA 0.2
+# Calistenia + BJJ — v0.3 (PWA)
 
-Aplicativo educativo em português para registrar e organizar preparação física voltada ao jiu-jitsu brasileiro.
+Aplicativo gratuito e educativo de calistenia, musculação e preparação física para jiu-jitsu, funcionando no celular Android via GitHub Pages. Código deste aplicativo sob licença MIT.
 
-## Novidades da 0.2
+## O que há na v0.3
 
-- Seis trilhas de habilidades (flexões, puxadas, quadril, base, tronco e pegada); avanço manual com dois critérios de segurança, possibilidade de corrigir uma etapa.
-- Histórico de séries vinculado aos exercícios das trilhas.
-- Alerta de carga semanal de BJJ (minutos e sessões intensas autodeclaradas); se alto, sugestão de no máximo 2 sessões físicas em vez de 3. Esses limiares são heurísticas, não diagnóstico.
-- Diagramas autorais e simplificados para algumas famílias de exercícios. **Não são vídeos**, nem orientação técnica presencial.
-- Backup compatível com a 0.1 e dados antigos preservados na mesma chave `calistenia_bjj_v1`.
-- Cache da PWA atualizado; a primeira atualização pode exigir fechar e abrir novamente.
+- **Gamificação:** XP por séries concluídas com registro, sessão física, diário BJJ, progressão manual de habilidade e meta semanal; níveis e 7 medalhas. Não há bônus por executar exercícios mais depressa, nem perda de pontos por dias de descanso.
+- **Sessão guiada:** relógio com iniciar, pausar, retomar; descanso opcional de 60 segundos; checklist de séries e percepção de esforço.
+- **Lembretes:** escolha dias, horário, duração, rotina opcional de pausa para água. Alertas dentro da PWA aberta; link para evento no Google Agenda; arquivo ICS com repetição nos dias escolhidos e alarme de 15 minutos.
+- **Demonstrações visuais:** imagens em posições sequenciais para 16 exercícios mapeados no catálogo, originadas do [RepDB](https://repdb.co), sob licença do plano gratuito que permite uso em aplicativos com crédito. Os recursos visuais são carregados da origem, não redistribuídos como conjunto de dados. 3 diagramas esquemáticos próprios para movimentos de BJJ e guias simplificados já existentes; itens não demonstrados são explicitamente marcados.
+- **Evolução v0.2 preservada:** seis trilhas de progressão, alerta de volume semanal de BJJ, planos por perfil, diário, estatísticas, backup JSON e exportação CSV.
 
-## Recursos disponíveis
+## Instruções para atualizar a versão instalada
 
-- Perfil: faixa, jogo de guarda/passagem/quedas, objetivo, nível físico e equipamento disponível.
-- Planos de 2 ou 3 sessões a partir de exercícios com identificadores únicos, instruções e cuidados.
-- Estado de energia de 1 a 5: notas 1 ou 2 substituem o programa por recuperação opcional.
-- Catálogo pesquisável de força, musculação, pegada, mobilidade, drills individuais e condicionamento.
-- Checklist para séries realizadas e registro de duração, percepção de esforço e anotações.
-- Diário de BJJ com data, duração, quantidade de rolas, intensidade e tema.
-- Cronômetro de rounds e descansos com alerta sonoro (dependente de permissões/navegador).
-- Evolução semanal e mensal, exportação de dados em JSON e CSV, importação de backup.
-- Funciona sem conta e sem servidor depois do primeiro carregamento no contexto HTTPS.
+1. **Crie um backup JSON em Ajustes** antes de enviar arquivos novos.
+2. Envie os arquivos do ZIP de atualização para a **raiz** do repositório `jiomavj-tech/BJJ-evolucao`, preservando a pasta `assets` e sem enviar o ZIP fechado.
+3. Confirme o commit e verifique o resultado do GitHub Pages.
+4. Abra `https://jiomavj-tech.github.io/BJJ-evolucao/` com internet e feche/abra a PWA pelo ícone na tela inicial. Se a versão antiga continuar no cache, abra novamente com internet.
+5. No aplicativo, acesse **Início → Ver conquistas**; vá em **Configurar lembretes** para dias e horário. Para receber notificações com a PWA fechada, gere eventos no Google Agenda e verifique as notificações do calendário do Android.
+6. Em **Exercícios**, abra um exercício ilustrado para visualizar as posições. As imagens são de referência: são indispensáveis leitura dos cuidados e revisão por treinador em movimentos desconhecidos.
 
-## Como testar localmente
+**Importante:** a chave local de armazenamento `calistenia_bjj_v1` não mudou. O histórico existente deve permanecer na mesma origem/navegador, salvo exclusão dos dados do navegador. Um backup sempre é recomendado antes de atualizar.
 
-Requer apenas Python 3 ou outro servidor HTTP estático. Não depende de npm e não envia dados para internet.
+## Limites técnicos
 
-```bash
-cd calistenia-bjj-v0.1
-python3 -m http.server 8080
-```
-
-Abra `http://localhost:8080/` em um navegador. **Não abra como `file://`**: navegadores restringem módulos JavaScript, service workers e instalação PWA nesse modo.
-
-### Instalar no Android
-
-1. Publique a pasta em uma hospedagem HTTPS como GitHub Pages.
-2. Abra a URL no Chrome Android.
-3. No menu ⋮, escolha **Instalar app** ou **Adicionar à tela inicial**.
-4. Abra uma vez com internet para preencher o cache do app; faça o teste em modo avião.
-
-### Hospedagem no GitHub Pages
-
-O projeto é inteiramente estático: a pasta pode ser o conteúdo da raiz de um repositório. No GitHub, ative **Settings > Pages > Deploy from a branch > main / (root)**. Se estiver em subpasta, publique o conteúdo dela como raiz. Todos os caminhos de arquivos são relativos e funcionam em uma rota `usuario.github.io/nome-do-repo/`.
-
-Não há backend: dados no `localStorage` só pertencem àquele navegador e origem. Para trocar de aparelho ou reinstalar, exporte e importe um **backup JSON**. Apagar os dados do navegador pode eliminá-los. Por serem informações pessoais e de treino, mantenha o arquivo de backup privado.
-
-## Integração futura com o Calistenia App
-
-Esta versão é **independente**, não é um fork integrado de `guillermoscript/calistenia-app`. O núcleo de catálogo e plano está em `core.mjs` para facilitar sua migração para `packages/core`, o app web para `apps/web`, e o diário para um adapter de armazenamento que futuramente use IndexedDB e/ou backend auditado.
-
-O projeto de referência é MIT: <https://github.com/guillermoscript/calistenia-app>. O repositório registrou alertas de segurança (incluindo risco crítico de exposição de dados no PocketBase e XSS) em julho de 2026. **Não usar backend ou migrações do upstream sem revisar correções e controles de acesso.**
-
-Esta versão **não copia código, imagens, animações nem vídeos** desses repositórios; os exercícios e interface foram escritos independentemente, inspirados nos requisitos funcionais. Se houver fusão posterior, preservar avisos de licença dos trechos efetivamente reutilizados.
+- **Sem push em segundo plano.** A PWA sozinha, estando encerrada, não pode garantir notificações horárias; a opção de Google Agenda usa alertas gerenciados pelo próprio calendário. Push nativo exigiria assinatura, serviço backend, consentimento e configuração adicionais.
+- **Sem sincronização remota.** Registros ficam no dispositivo, não no GitHub; backups JSON não estão criptografados.
+- **Imagens da biblioteca têm conexão necessária na primeira visualização** e podem ficar indisponíveis se o provedor bloquear o recurso; quando visitadas com conexão, o service worker tenta armazená-las em cache offline.
+- **Não copie nem redistribua o catálogo de imagens.** A licença do RepDB autoriza exibição em aplicativos com atribuição visível, não hospedagem de um dataset ou uso em geração de IA. Crédito mostrado: *Exercise data by RepDB (repdb.co)*.
+- **Nem todos os exercícios têm fotos.** Os drills de BJJ precisam de demonstrações verificadas; os atuais esquemas não são substitutos de instrução presencial.
+- Treinos e alertas de carga são educativos, não prescrição clínica. Dor, tontura e fadiga incomum justificam interromper o treino.
+- Código desta versão desenvolvido independentemente; não houve fusão direta dos repositórios externos do GitHub.
 
 ## Testes
 
 ```bash
-node --test tests/core.test.mjs
+node --test tests/*.test.mjs
 node --check app.mjs
+node --check sw.js
+python3 -m http.server 8080
 ```
 
-## Limitações e segurança
+Para testar a PWA localmente, abra `http://localhost:8080/`. A instalação exige HTTPS ou localhost, e não funciona abrindo `file://`.
 
-- Planos são sugestões educativas **não individualizadas**, não garantem melhora técnica no BJJ e não substituem profissional de educação física.
-- Energia 1–2 reduz automaticamente a sugestão; não determina clinicamente se o usuário está apto.
-- Sem cadastro remoto, sincronização, vídeos, sensores ou feedback por IA. A 0.2 possui somente diagramas estáticos em alguns exercícios.
-- Sem integração com o upstream, nem publicação automática feita pelo projeto.
-- Armazenamento local é vulnerável a limpeza de cache/dados; use backup. Sem criptografia de backup.
-- Cronômetro depende da execução do navegador para alarmes e pode ter alertas silenciados em segundo plano.
-- Para dor forte, sintomas neurológicos, tontura, desconforto torácico, fadiga intensa incomum ou falta de ar, interromper atividade e buscar orientação profissional apropriada.
+## Arquivos principais
 
-## Estrutura
+- `app.mjs` interface, sessões, lembretes e registro;
+- `core.mjs` biblioteca e seleção de exercícios;
+- `evolution.mjs` trilhas e volume BJJ;
+- `gamification.mjs` XP, medalhas, calendário ICS;
+- `visuals.mjs` associação visual e diagramas;
+- `styles.css`, `index.html`, `manifest.webmanifest`, `sw.js`, ícones em `assets/`;
+- `tests/` verificações automatizadas.
 
-```text
-index.html              Interface inicial e navegação
-styles.css              Estilo responsivo e dark mode
-core.mjs                Catálogo, regras de seleção e validações
-evolution.mjs           Trilha de habilidades, leitura de carga e guias esquemáticos
-app.mjs                 Interações, formulários, histórico, timer e backup
-manifest.webmanifest    PWA instalável
-sw.js                   Cache offline dos arquivos estáticos
-assets/icon-*.png       Ícones PNG
-tests/core.test.mjs     Testes unitários
-tests/evolution.test.mjs Testes das novas funções
-```
+## Contato com fontes e licenças
 
-## Licença
+- [RepDB — conjunto de exercícios e licença do material](https://github.com/RepDB/exercise-dataset)
+- [MDN — Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API)
+- [Google Agenda](https://calendar.google.com/)
 
-MIT — código desta implementação original. Veja `LICENSE`.
-
-## Atualização de uma instalação existente
-
-1. **Antes de atualizar**, abra o app instalado e exporte um backup JSON em Ajustes.
-2. No repositório GitHub Pages existente, substitua os arquivos da raiz pelos arquivos do pacote de atualização 0.2, incluindo o novo `evolution.mjs`. **Não apague** as pastas `assets/` e `tests/`.
-3. Após publicar, feche e abra o app pelo ícone. Se a versão antiga continuar, feche-o e abra outra vez com internet. Os dados locais permanecem no armazenamento do mesmo domínio.
-4. Confira em **Início → Suas progressões** se as trilhas aparecem, depois em **Evolução** se o histórico antigo está preservado.
-
-**Importante:** a 0.2 é uma evolução independente do aplicativo anterior, não uma integração direta com o monorepo Calistenia App de terceiros.
+O aplicativo é uma implementação independente inspirada em funcionalidades de projetos como Calistenia App, Ballast e aplicativos de registro BJJ. Nenhum código-fonte de terceiros foi incorporado à v0.3.
