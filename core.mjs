@@ -77,7 +77,7 @@ const prefer = {
  cardio:['bike','intervalo-marcha','saltitos','caminhada'],
  mobilidade:['quadril90','toracica','gato-vaca']
 };
-function safe(ex, profile) {
+export function safe(ex, profile) {
  if (!ex) return false;
  if (!accessible[profile.equipment]?.includes(ex.gear)) return false;
  if (ex.level > (L[profile.level] || 1)) return false;

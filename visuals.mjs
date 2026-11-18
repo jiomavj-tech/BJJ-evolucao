@@ -23,12 +23,36 @@ const MATCH={
  'legpress':['leg-press-start.webp','leg-press-peak.webp','Leg press convencional'],
  'bike':['stationary-bike-main.webp',null,'Bicicleta ergométrica']
 };
-export function matchCount(){return Object.keys(MATCH).length;}
-export function remoteImages(ex){const match=MATCH[ex.id];if(!match)return null;return {photos:match[1]?[ROOT+match[0],ROOT+match[1]]:[ROOT+match[0]],caption:match[2],source:'RepDB (repdb.co), licença Free Tier'};}
+// Fotos locais (funcionam offline): Free Exercise DB, domínio público (Unlicense).
+// https://github.com/yuhonas/free-exercise-db — duas fotos por exercício: início e fim do movimento.
+const LOCAL={
+ 'gato-vaca':'Mobilidade em quatro apoios (gato)','prancha':'Prancha frontal','lateral':'Prancha lateral — na foto, com joelhos estendidos',
+ 'deadbug':'Dead bug','flexao-parede':'Flexão com apoio elevado','flexao':'Flexão de braços','flexao-tempo':['flexao','Flexão — desça devagar, em 3 a 4 segundos'],
+ 'agachamento':'Agachamento livre','afundo':'Afundo parado (split squat)','ponte-gluteo':'Ponte de glúteos','ponte-uni':'Ponte de glúteos unilateral',
+ 'stepup':'Subida no degrau — na foto, com halteres e degrau alto','barra':'Barra assistida com elástico','pallof':'Pallof press — na foto, com polia',
+ 'remada-maquina':'Remada sentada na polia','puxada':'Puxada alta','supino':'Supino com halteres','legpress':'Leg press',
+ 'terra-romeno':'Levantamento romeno — na foto, com barra','farmer':'Caminhada do fazendeiro','bike':'Bicicleta ergométrica'
+};
+export function matchCount(){return new Set([...Object.keys(LOCAL),...Object.keys(MATCH)]).size;}
+/** Mídia do exercício: primeiro as fotos locais (offline); senão, RepDB (fica guardada no celular depois da 1ª vez). */
+export function remoteImages(ex){
+ const loc=LOCAL[ex.id];
+ if(loc){const [file,caption]=Array.isArray(loc)?loc:[ex.id,loc];return {photos:[`./assets/ex/${file}-0.jpg`,`./assets/ex/${file}-1.jpg`],caption,source:'Free Exercise DB (domínio público)',offline:true};}
+ const match=MATCH[ex.id];if(!match)return null;
+ return {photos:match[1]?[ROOT+match[0],ROOT+match[1]]:[ROOT+match[0]],caption:match[2],source:'RepDB (repdb.co), licença Free Tier',offline:false};
+}
+const escH=t=>String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+/** Animação de 2 quadros (início ↔ fim), como um gif leve. */
+export function animatedPhoto(ref,cls=''){
+ if(!ref)return '';
+ const rp=ref.offline?'':' referrerpolicy="no-referrer"';
+ if(ref.photos.length<2)return `<div class="anim ${cls}"><img src="${ref.photos[0]}" alt="${escH(ref.caption)}" loading="lazy" decoding="async"${rp}></div>`;
+ return `<div class="anim two ${cls}" role="img" aria-label="${escH(ref.caption)}: início e fim do movimento"><img src="${ref.photos[0]}" alt="" loading="lazy" decoding="async"${rp}><img src="${ref.photos[1]}" alt="" loading="lazy" decoding="async"${rp}></div>`;
+}
 export function imagesHtml(ex){const ref=remoteImages(ex);if(!ref)return '';
- const caption=ref.caption.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
- const photos=ref.photos.map((url,i)=>`<div class="demo-photo"><img src="${url}" alt="${i===0?'Posição inicial':'Posição seguinte'} de ${caption}" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="photo-error">Imagem indisponível. Use conexão à internet.</span></div>`).join('');
- return `<div class="real-demo"><div class="eyebrow">Ilustrações de execução</div><div class="demo-pair">${photos}</div><p class="small">${caption}. Compare com os passos e cuidados em português abaixo.</p><p class="tiny muted">Imagens: ${ref.source}. Necessitam de internet na primeira visualização. Variações podem ter diferenças de execução. <a href="https://repdb.co" target="_blank" rel="noopener noreferrer">Exercise data by RepDB (repdb.co)</a></p></div>`;
+ const caption=escH(ref.caption);
+ const credit=ref.offline?'Fotos: Free Exercise DB, domínio público. Disponíveis offline.':'Imagens: RepDB. Precisam de internet na primeira vez; depois ficam guardadas no celular. <a href="https://repdb.co" target="_blank" rel="noopener noreferrer">Exercise data by RepDB (repdb.co)</a>';
+ return `<div class="real-demo"><div class="eyebrow">Como fazer</div>${animatedPhoto(ref,'big')}<p class="small">${caption}. A imagem alterna entre o início e o fim do movimento. Confira os passos e cuidados abaixo.</p><p class="tiny muted">${credit}</p></div>`;
 }
 const drawings={
  shrimp:{title:'Fuga de quadril — vista superior esquemática',parts:[

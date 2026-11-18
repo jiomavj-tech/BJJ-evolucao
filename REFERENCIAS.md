@@ -16,6 +16,7 @@ Repositórios do GitHub usados como **referência de ideias e funcionalidades**.
 | 10 | [Training Records](https://github.com/TheFoundrySports/training-records) | Preparação física integrada | Sem licença | Não (só ideias) |
 | 11 | [Grapple Flows — BJJ Timer](https://github.com/grapple-flows/bjj-timer) | Cronômetro de BJJ | MIT | Não |
 | 12 | [openGym](https://github.com/DuarteSantos8/openGym) | Exercícios e musculação | AGPL | Não. **Copiar código obrigaria a abrir o app sob AGPL** |
+| 14 | [Free Exercise DB](https://github.com/yuhonas/free-exercise-db) | Fotos de exercícios (início e fim) | Unlicense (domínio público) | **Sim:** 42 fotos de 21 exercícios, reduzidas para 480 px, em `assets/ex/`. Observação: as fotos parecem vir de um banco de imagens mais antigo e não dá para confirmar a origem; o projeto as publica como domínio público |
 | 13 | [RepDB](https://github.com/RepDB/exercise-dataset) | Ilustrações dos exercícios | MIT (código) + licença própria (imagens) | As imagens são exibidas a partir do site do RepDB, com crédito. É proibido redistribuí-las como conjunto de dados |
 
 ## Regra para o projeto
@@ -27,4 +28,5 @@ Repositórios do GitHub usados como **referência de ideias e funcionalidades**.
 ## Fontes de conteúdo
 
 - Tempos mínimos de faixa: Sistema Geral de Graduação da IBJJF (adultos, 18+). Azul → roxa: 2 anos; roxa → marrom: 1 ano e meio; marrom → preta: 1 ano; sem mínimo na branca. Cada academia pode ter critérios próprios.
+- Desenhos das posições de BJJ: arte original deste projeto (`positions.mjs`).
 - Biblioteca de técnicas: texto original deste projeto, escrito como lembrete de estudo. Não substitui a aula com o professor.

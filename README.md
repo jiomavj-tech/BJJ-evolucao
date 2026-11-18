@@ -1,8 +1,16 @@
-# BJJ Evolução — v0.5 (PWA)
+# BJJ Evolução — v0.6 (PWA)
 
 Aplicativo gratuito para acompanhar a evolução no jiu-jitsu: técnicas, faixa, diário de treino e preparação física (calistenia e musculação). Funciona no celular Android pelo GitHub Pages, sem login: os dados ficam no aparelho. Código sob licença MIT.
 
 App publicado: https://jiomavj-tech.github.io/BJJ-evolucao/
+
+## O que há na v0.6
+
+- **Treino por tempo:** em "Meu plano", escolha 15 a 60 minutos e o descanso entre séries. O app monta a sessão a partir do seu plano (aquecimento, principais, desaquecimento), mostra a estimativa de tempo e deixa trocar, remover ou adicionar exercícios.
+- **Descanso automático:** na sessão, marcar uma série inicia o descanso, com um painel grande fixo no topo (+15 s, pular). Quando o descanso acaba, o celular apita três vezes e vibra. A tela fica ligada durante o treino, nos navegadores que permitem.
+- **Cronômetro com dois modos** no Diário: Jiu-jitsu (rounds) e Calistenia (séries e descanso).
+- **Fotos offline:** 21 exercícios têm duas fotos (início e fim) que alternam como um gif, incluídas no app (Free Exercise DB, domínio público). As fotos do RepDB ficam guardadas no celular depois da primeira visualização.
+- **Desenhos das posições de BJJ:** 10 posições (guardas, montada, cem quilos, joelho na barriga, norte-sul, costas, em pé), desenhadas para o projeto. Cada técnica mostra a posição de partida, com você em verde e o parceiro em laranja.
 
 ## O que há na v0.5
 
@@ -69,6 +77,9 @@ Para testar a PWA localmente, abra `http://localhost:8080/`. A instalação exig
 - `visuals.mjs` associação visual e diagramas;
 - `techniques.mjs` biblioteca de técnicas de BJJ;
 - `bjj.mjs` faixa, graus e estatísticas do diário;
+- `quick.mjs` treino por tempo (estimativa e montagem);
+- `positions.mjs` desenhos esquemáticos das posições de BJJ;
+- `assets/ex/` fotos dos exercícios (Free Exercise DB, domínio público);
 - `styles.css`, `index.html`, `manifest.webmanifest`, `sw.js`, ícones em `assets/`;
 - `tests/` verificações automatizadas.
 
