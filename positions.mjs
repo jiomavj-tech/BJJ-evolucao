@@ -107,3 +107,5 @@ export function techniqueDiagram(techId) {
     + `<div class="pos-legend"><span><i style="background:${YOU}"></i>Você</span><span><i style="background:${PARTNER}"></i>Parceiro</span></div>`
     + `<p class="tiny muted">Desenho esquemático, fora de escala: mostra a posição, não o detalhe da técnica. Os detalhes estão nos pontos-chave e com o seu professor.</p></div>`;
 }
+
+export const POSITION_LABELS = Object.fromEntries(Object.entries(POS).map(([k, v]) => [k, v.label]));

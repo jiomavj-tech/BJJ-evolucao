@@ -58,3 +58,10 @@ fieldset.plain{border:0;padding:0;margin:0;min-width:0}fieldset.plain legend{fon
 .draw-svg .fr.f1{animation:animswap 2.4s steps(1,end) infinite}.draw-svg .fr.f0{animation:animswap 2.4s steps(1,end) infinite reverse}
 @media (prefers-reduced-motion:reduce){.draw-svg .fr.f1{animation:none;opacity:0}.draw-svg .fr.f0{animation:none}}
 .exicon svg text{display:none}
+/* v0.8 — fotos do usuário */
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}.slot img,.slot-empty{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:10px;display:block}
+.slot-empty{display:flex;align-items:center;justify-content:center;border:2px dashed #45624f;color:var(--muted);font-size:12px;font-weight:700;text-align:center;padding:6px}
+.file-btn{position:relative;overflow:hidden;cursor:pointer}.file-btn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.photo-item{border-bottom:1px solid var(--border);padding:4px 0}.photo-item summary{display:flex;align-items:center;gap:10px;min-height:46px;cursor:pointer;list-style:none}.photo-item summary::-webkit-details-marker{display:none}
+.photo-item .check{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:2px solid #45624f;color:var(--muted);font-weight:900;flex:none}
+.photo-item.done .check{background:var(--accent);border-color:var(--accent);color:#10200f}.photo-item .pname{flex:1;font-weight:700;font-size:14px}.photo-item[open]{padding-bottom:12px}

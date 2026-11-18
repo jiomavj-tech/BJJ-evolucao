@@ -1,8 +1,15 @@
-# BJJ Evolução — v0.7 (PWA)
+# BJJ Evolução — v0.8 (PWA)
 
 Aplicativo gratuito para acompanhar a evolução no jiu-jitsu: técnicas, faixa, diário de treino e preparação física (calistenia e musculação). Funciona no celular Android pelo GitHub Pages, sem login: os dados ficam no aparelho. Código sob licença MIT.
 
 App publicado: https://jiomavj-tech.github.io/BJJ-evolucao/
+
+## O que há na v0.8
+
+- **Suas fotos:** cada exercício, técnica e posição de jiu-jitsu tem os botões "Foto do início" e "Foto do fim" (câmera ou galeria). As fotos ficam só no celular (IndexedDB), funcionam sem internet, alternam como um gif e substituem o desenho. Nada vai para o repositório público.
+- **Minhas fotos** (em Evolução e na Biblioteca): lista do que fotografar em ordem de prioridade (posições de BJJ, exercícios que hoje são desenho, fotos com equipamento diferente e os demais), com marcação automática e dicas de como tirar.
+- **Link de vídeos:** cada exercício tem um botão que abre a busca no YouTube; as técnicas já tinham.
+- O backup (JSON) agora inclui as fotos. Restaurar num celular novo traz tudo de volta.
 
 ## O que há na v0.7
 
@@ -85,6 +92,7 @@ Para testar a PWA localmente, abra `http://localhost:8080/`. A instalação exig
 - `bjj.mjs` faixa, graus e estatísticas do diário;
 - `quick.mjs` treino por tempo (estimativa e montagem);
 - `positions.mjs` desenhos esquemáticos das posições de BJJ;
+- `media.mjs` fotos do usuário guardadas no celular (IndexedDB) e backup delas;
 - `assets/ex/` fotos dos exercícios (Free Exercise DB, domínio público);
 - `styles.css`, `index.html`, `manifest.webmanifest`, `sw.js`, ícones em `assets/`;
 - `tests/` verificações automatizadas.
