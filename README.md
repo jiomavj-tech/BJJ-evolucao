@@ -1,6 +1,18 @@
-# Calistenia + BJJ — v0.3 (PWA)
+# BJJ Evolução — v0.4 (PWA)
 
-Aplicativo gratuito e educativo de calistenia, musculação e preparação física para jiu-jitsu, funcionando no celular Android via GitHub Pages. Código deste aplicativo sob licença MIT.
+Aplicativo gratuito para acompanhar a evolução no jiu-jitsu: técnicas, faixa, diário de treino e preparação física (calistenia e musculação). Funciona no celular Android pelo GitHub Pages, sem login: os dados ficam no aparelho. Código sob licença MIT.
+
+App publicado: https://jiomavj-tech.github.io/BJJ-evolucao/
+
+## O que há na v0.4
+
+- **Biblioteca de técnicas de BJJ:** 53 técnicas em 7 categorias (guardas, raspagens, passagens, controles, finalizações, fugas e quedas), com pontos-chave, nível e indicação de kimono/sem kimono. Para cada uma, você marca o seu domínio (não vista → vi em aula → drilando → funciona no rola), coloca até 5 em foco, escreve anotações e abre uma busca de vídeos no YouTube.
+- **Faixa e graus:** histórico de graduações com data, tempo na faixa, tempo e treinos desde o último grau, horas de tatame, tempo mínimo de referência da IBJJF, metas técnicas e meta mensal de treinos.
+- **Diário técnico:** tipo de aula, raspagens, passagens, quedas, finalizações aplicadas e sofridas, técnicas da aula e posições onde você sofreu.
+- **Evolução técnica:** o que funciona para você, o que mais te pega (com a defesa a estudar) e onde você mais sofre (com a fuga a estudar).
+- O app passou a se chamar **BJJ Evolução**. A chave de armazenamento `calistenia_bjj_v1` não mudou, e backups antigos continuam válidos.
+
+Referências e licenças dos projetos consultados: [REFERENCIAS.md](REFERENCIAS.md).
 
 ## O que há na v0.3
 
@@ -49,6 +61,8 @@ Para testar a PWA localmente, abra `http://localhost:8080/`. A instalação exig
 - `evolution.mjs` trilhas e volume BJJ;
 - `gamification.mjs` XP, medalhas, calendário ICS;
 - `visuals.mjs` associação visual e diagramas;
+- `techniques.mjs` biblioteca de técnicas de BJJ;
+- `bjj.mjs` faixa, graus e estatísticas do diário;
 - `styles.css`, `index.html`, `manifest.webmanifest`, `sw.js`, ícones em `assets/`;
 - `tests/` verificações automatizadas.
 

@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Calistenia + BJJ",
-  "short_name": "Calis BJJ",
-  "description": "Calistenia e preparação física para jiu-jitsu. Treinos, habilidades, diário e evolução offline.",
+  "name": "BJJ Evolução",
+  "short_name": "BJJ Evolução",
+  "description": "Evolução no jiu-jitsu: técnicas, faixa, diário de treino e preparação física, offline.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

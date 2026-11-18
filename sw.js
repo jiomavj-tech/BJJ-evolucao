@@ -1,6 +1,6 @@
 /* Cache estático local: sem rastreamento, sem APIs remotas. */
-const CACHE='calistenia-bjj-static-v03';
-const ASSETS=['./','./index.html','./styles.css','./app.mjs','./core.mjs','./evolution.mjs','./gamification.mjs','./visuals.mjs','./manifest.webmanifest','./assets/icon-192.png','./assets/icon-512.png'];
+const CACHE='bjj-evolucao-static-v04';
+const ASSETS=['./','./index.html','./styles.css','./app.mjs','./core.mjs','./evolution.mjs','./gamification.mjs','./visuals.mjs','./techniques.mjs','./bjj.mjs','./manifest.webmanifest','./assets/icon-192.png','./assets/icon-512.png'];
 self.addEventListener('install', event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()));
 });
