@@ -1,27 +1,25 @@
-# Roadmap de integração — Calistenia + BJJ
+# Roadmap — Calistenia + BJJ
 
-## 0.1 — Protótipo PWA, sem contas (entregue)
-- Catálogo original, plano conforme perfil, registro de séries, diário BJJ, timer, progresso, backup.
-- Motor sem bibliotecas externas e dados somente no dispositivo.
+## v0.1 — Entregue
+- PWA instalável, exercícios, treino por perfil, diário BJJ, timer e backup local.
 
-## 0.2 — Base de treinamento integrada
-- Revisar as vulnerabilidades do Calistenia App upstream e verificar se foram corrigidas nas versões a reutilizar.
-- Migrar o catálogo/gerador para `packages/core` do monorepo e o fluxo visual para `apps/web`.
-- Adaptador de persistência `LocalStorageRepository` → `IndexedDbRepository` e sincronização opcional.
-- Manter arquivos MIT e créditos dos projetos de origem quando trechos forem de fato reutilizados.
-- Testes e importação idempotente para evitar registros duplicados.
+## v0.2 — Implementada no pacote (a publicação depende do GitHub)
+- Seis trilhas de habilidades com metas educacionais e progressão manual.
+- Alertas de carga semanal com histórico de jiu-jitsu e ajuste conservador do número de sessões.
+- Guias ilustrados esquemáticos para movimentos selecionados.
+- Compatibilidade com histórico/backups 0.1, sem troca de schema.
+- Testes de regras de negócio e sintaxe.
 
-## 0.3 — Preparação física BJJ avançada
-- Carga semanal considerando rolas, duração, RPE e energia relatada (sem oferecer diagnóstico).
-- Critérios claros de evolução por habilidade (progressão de pegada, barra, flexão, core, quadril).
-- Personalização por agenda de tatame e equipamentos.
-- Revisão técnica dos treinos por profissionais qualificados.
+## v0.3 — Próxima etapa
+- Agenda semanal combinando aulas no tatame e treinos físicos.
+- RPE por série, deload opcional e progressão por desempenho real.
+- Aperfeiçoar recursos para guardeiros, passadores e praticantes de quedas.
+- Avaliação técnica de exercícios por profissional qualificado.
 
-## 0.4 — Biblioteca audiovisual
-- Produzir vídeos próprios ou integrar materiais com licenças autorizadas.
-- Áudio instruído e acessibilidade; download opcional das demonstrações.
+## v0.4 — Planejada
+- Demonstrações em vídeo próprias ou devidamente licenciadas; áudio de instruções.
+- Experiência acessível, controles de tamanho de texto e vídeos offline opcionais.
 
-## 1.0 — Publicação e manutenção
-- CI com testes, auditoria de segurança e dependências, testes em Android e iPhone.
-- Privacidade e backup reforçados, restauração entre dispositivos e política de dados.
-- Publicação em hospedagem HTTPS (GitHub Pages para versão estática, ou ambiente auditado para sincronização).
+## v1.0 — Planejada
+- CI, auditoria de segurança, testes multiplataforma, política de privacidade e distribuição estável.
+- Se for integrar código de apps externos, auditar upstream e cumprir licenças antes.

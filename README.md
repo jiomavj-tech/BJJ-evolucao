@@ -1,6 +1,15 @@
-# Calistenia + BJJ — PWA 0.1
+# Calistenia + BJJ — PWA 0.2
 
 Aplicativo educativo em português para registrar e organizar preparação física voltada ao jiu-jitsu brasileiro.
+
+## Novidades da 0.2
+
+- Seis trilhas de habilidades (flexões, puxadas, quadril, base, tronco e pegada); avanço manual com dois critérios de segurança, possibilidade de corrigir uma etapa.
+- Histórico de séries vinculado aos exercícios das trilhas.
+- Alerta de carga semanal de BJJ (minutos e sessões intensas autodeclaradas); se alto, sugestão de no máximo 2 sessões físicas em vez de 3. Esses limiares são heurísticas, não diagnóstico.
+- Diagramas autorais e simplificados para algumas famílias de exercícios. **Não são vídeos**, nem orientação técnica presencial.
+- Backup compatível com a 0.1 e dados antigos preservados na mesma chave `calistenia_bjj_v1`.
+- Cache da PWA atualizado; a primeira atualização pode exigir fechar e abrir novamente.
 
 ## Recursos disponíveis
 
@@ -57,7 +66,7 @@ node --check app.mjs
 
 - Planos são sugestões educativas **não individualizadas**, não garantem melhora técnica no BJJ e não substituem profissional de educação física.
 - Energia 1–2 reduz automaticamente a sugestão; não determina clinicamente se o usuário está apto.
-- Sem cadastro remoto, sincronização, vídeos, sensores, feedback por IA ou sistema de academia nesta versão.
+- Sem cadastro remoto, sincronização, vídeos, sensores ou feedback por IA. A 0.2 possui somente diagramas estáticos em alguns exercícios.
 - Sem integração com o upstream, nem publicação automática feita pelo projeto.
 - Armazenamento local é vulnerável a limpeza de cache/dados; use backup. Sem criptografia de backup.
 - Cronômetro depende da execução do navegador para alarmes e pode ter alertas silenciados em segundo plano.
@@ -69,13 +78,24 @@ node --check app.mjs
 index.html              Interface inicial e navegação
 styles.css              Estilo responsivo e dark mode
 core.mjs                Catálogo, regras de seleção e validações
+evolution.mjs           Trilha de habilidades, leitura de carga e guias esquemáticos
 app.mjs                 Interações, formulários, histórico, timer e backup
 manifest.webmanifest    PWA instalável
 sw.js                   Cache offline dos arquivos estáticos
 assets/icon-*.png       Ícones PNG
- tests/core.test.mjs    Testes unitários
+tests/core.test.mjs     Testes unitários
+tests/evolution.test.mjs Testes das novas funções
 ```
 
 ## Licença
 
 MIT — código desta implementação original. Veja `LICENSE`.
+
+## Atualização de uma instalação existente
+
+1. **Antes de atualizar**, abra o app instalado e exporte um backup JSON em Ajustes.
+2. No repositório GitHub Pages existente, substitua os arquivos da raiz pelos arquivos do pacote de atualização 0.2, incluindo o novo `evolution.mjs`. **Não apague** as pastas `assets/` e `tests/`.
+3. Após publicar, feche e abra o app pelo ícone. Se a versão antiga continuar, feche-o e abra outra vez com internet. Os dados locais permanecem no armazenamento do mesmo domínio.
+4. Confira em **Início → Suas progressões** se as trilhas aparecem, depois em **Evolução** se o histórico antigo está preservado.
+
+**Importante:** a 0.2 é uma evolução independente do aplicativo anterior, não uma integração direta com o monorepo Calistenia App de terceiros.
