@@ -117,14 +117,32 @@ export function techniqueHistory(history, id) {
   return { given: count('given'), taken: count('taken'), worked: count('worked') };
 }
 
+/** Rolas por faixa do parceiro e parceiros mais frequentes, numa janela de dias. */
+export function partnerStats(history, days = 90, now = new Date()) {
+  const rolls = inWindow(history, days, now).flatMap(s => s.partners || []);
+  const byBelt = {};
+  for (const r of rolls) { const b = byBelt[r.belt] ||= { rolls: 0, fin: 0, tap: 0, emp: 0 }; b.rolls++; b[r.out]++; }
+  const names = {};
+  for (const r of rolls) { const k = r.name.trim().toLocaleLowerCase('pt-BR'); const n = names[k] ||= { name: r.name.trim(), belt: r.belt, rolls: 0, fin: 0, tap: 0, emp: 0 }; n.rolls++; n[r.out]++; n.belt = r.belt; }
+  return { total: rolls.length, byBelt, partners: Object.values(names).sort((a, b) => b.rolls - a.rolls).slice(0, 8) };
+}
+export function knownPartners(history) {
+  const m = new Map();
+  for (const s of history || []) for (const p of s.partners || []) m.set(p.name.trim().toLocaleLowerCase('pt-BR'), { name: p.name.trim(), belt: p.belt });
+  return [...m.values()];
+}
+
 export function techName(id) { return TECH_BY_ID[id]?.name || (id === 'outra' ? 'Outra finalização' : id); }
 
 // ── Validação de backup ──────────────────────────────────────
 const idList = (v, max) => v === undefined || (Array.isArray(v) && v.length <= max && v.every(x => typeof x === 'string' && x.length <= 40));
 const smallInt = (v, max) => v === undefined || (Number.isInteger(v) && v >= 0 && v <= max);
 
+export const PARTNER_OUT = { fin: 'Finalizei', tap: 'Fui finalizado', emp: 'Sem finalização' };
+const validPartners = v => v === undefined || (Array.isArray(v) && v.length <= 30 && v.every(p => p && typeof p.name === 'string' && p.name.trim().length >= 1 && p.name.length <= 40 && (p.belt in BELTS || p.belt === 'nao_sei') && p.out in PARTNER_OUT));
+
 export function validBjjSession(s) {
-  return idList(s.given, 30) && idList(s.taken, 30) && idList(s.worked, 30) &&
+  return validPartners(s.partners) && idList(s.given, 30) && idList(s.taken, 30) && idList(s.worked, 30) &&
     (s.trouble === undefined || (Array.isArray(s.trouble) && s.trouble.length <= 10 && s.trouble.every(k => k in TROUBLE_SPOTS))) &&
     (s.kind === undefined || s.kind in SESSION_KINDS) &&
     smallInt(s.sweeps, 50) && smallInt(s.passes, 50) && smallInt(s.takedowns, 50);

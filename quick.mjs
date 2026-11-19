@@ -1,5 +1,6 @@
 /** Treino por tempo: estima a duração de cada exercício e monta uma sessão que cabe no tempo escolhido. */
 import { EXERCISES, BY_ID, safe, makePlan } from './core.mjs';
+import { avoidedIds } from './injuries.mjs';
 
 const LIGHT = new Set(['aquecimento', 'mobilidade', 'recuperacao']);
 export const REST_OPTIONS = [30, 45, 60, 90, 120];
@@ -28,14 +29,14 @@ export function totalMinutes(ids, rest = 60) {
   return Math.round(ids.map(id => BY_ID[id]).filter(Boolean).reduce((n, ex) => n + estimateSeconds(ex, rest), 0) / 60);
 }
 
-export function eligible(profile) {
-  const p = profile || {};
-  return EXERCISES.filter(ex => safe(ex, p) && (p.readiness > 2 || LIGHT.has(ex.category)));
+export function eligible(profile, injuries = []) {
+  const p = profile || {}, avoid = avoidedIds(injuries);
+  return EXERCISES.filter(ex => safe(ex, p) && !avoid.has(ex.id) && (p.readiness > 2 || LIGHT.has(ex.category)));
 }
 
 /** Monta a sessão. variant alterna entre os dias do plano para variar os treinos. */
-export function buildQuick(profile, minutes, rest = 60, variant = 0) {
-  const budget = minutes * 60, pool = eligible(profile), ok = new Set(pool.map(e => e.id));
+export function buildQuick(profile, minutes, rest = 60, variant = 0, injuries = []) {
+  const budget = minutes * 60, pool = eligible(profile, injuries), ok = new Set(pool.map(e => e.id));
   const ids = [];
   const add = id => { if (ok.has(id) && !ids.includes(id)) ids.push(id); };
   const cost = list => list.reduce((n, id) => n + estimateSeconds(BY_ID[id], rest), 0);
@@ -62,8 +63,8 @@ export function buildQuick(profile, minutes, rest = 60, variant = 0) {
 }
 
 /** Próxima alternativa do mesmo tipo (categoria), que ainda não está na lista. */
-export function swapOptions(profile, id, current) {
+export function swapOptions(profile, id, current, injuries = []) {
   const ex = BY_ID[id]; if (!ex) return [];
-  const alt = eligible(profile).filter(e => e.id !== id && !current.includes(e.id) && e.category === ex.category);
+  const alt = eligible(profile, injuries).filter(e => e.id !== id && !current.includes(e.id) && e.category === ex.category);
   return [...alt.filter(e => e.pattern === ex.pattern), ...alt.filter(e => e.pattern !== ex.pattern)];
 }

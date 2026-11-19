@@ -1,8 +1,15 @@
-# BJJ Evolução — v0.8 (PWA)
+# BJJ Evolução — v0.9 (PWA)
 
 Aplicativo gratuito para acompanhar a evolução no jiu-jitsu: técnicas, faixa, diário de treino e preparação física (calistenia e musculação). Funciona no celular Android pelo GitHub Pages, sem login: os dados ficam no aparelho. Código sob licença MIT.
 
 App publicado: https://jiomavj-tech.github.io/BJJ-evolucao/
+
+## O que há na v0.9
+
+- **Mapa de jogo** (Biblioteca → Mapa de jogo): 10 posições, por cima e por baixo, com o que fazer em cada uma, para onde cada técnica leva e o que emendar se o parceiro defender. Você escolhe até 3 técnicas por posição (plano A, B e C), e o app monta a linha do seu jogo a partir de em pé e o seu plano de fuga da montada, do cem quilos e das costas. Cada técnica mostra onde aparece no mapa.
+- **Lesões e dores** (Evolução → Lesões): região, lado, dor de 0 a 10 e data. Com dor 3 ou mais, o treino por tempo deixa de fora os exercícios que forçam a região; com dor 1 ou 2, eles aparecem com aviso. A tela inicial e o diário avisam enquanto a lesão estiver ativa, e há orientação de quando procurar um profissional.
+- **Parceiros no diário:** nome, faixa e resultado de cada rola (finalizei, fui finalizado ou sem finalização), com autocompletar da faixa. A Evolução mostra as rolas por faixa e os parceiros mais frequentes nos últimos 90 dias.
+- Ideias inspiradas em apps do mercado (árvore de técnicas, plano de jogo, registro de lesões, desempenho por faixa). Nenhum código foi copiado.
 
 ## O que há na v0.8
 
@@ -92,6 +99,8 @@ Para testar a PWA localmente, abra `http://localhost:8080/`. A instalação exig
 - `bjj.mjs` faixa, graus e estatísticas do diário;
 - `quick.mjs` treino por tempo (estimativa e montagem);
 - `positions.mjs` desenhos esquemáticos das posições de BJJ;
+- `gameplan.mjs` mapa de jogo (ataques, destinos e emendas por posição);
+- `injuries.mjs` lesões e exercícios que carregam cada região;
 - `media.mjs` fotos do usuário guardadas no celular (IndexedDB) e backup delas;
 - `assets/ex/` fotos dos exercícios (Free Exercise DB, domínio público);
 - `styles.css`, `index.html`, `manifest.webmanifest`, `sw.js`, ícones em `assets/`;

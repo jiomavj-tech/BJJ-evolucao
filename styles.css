@@ -65,3 +65,13 @@ fieldset.plain{border:0;padding:0;margin:0;min-width:0}fieldset.plain legend{fon
 .photo-item{border-bottom:1px solid var(--border);padding:4px 0}.photo-item summary{display:flex;align-items:center;gap:10px;min-height:46px;cursor:pointer;list-style:none}.photo-item summary::-webkit-details-marker{display:none}
 .photo-item .check{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:2px solid #45624f;color:var(--muted);font-weight:900;flex:none}
 .photo-item.done .check{background:var(--accent);border-color:var(--accent);color:#10200f}.photo-item .pname{flex:1;font-weight:700;font-size:14px}.photo-item[open]{padding-bottom:12px}
+/* v0.9 — mapa de jogo, lesões e parceiros */
+.flow{display:flex;flex-direction:column;align-items:stretch;gap:4px}.flow-node{background:#22352d;border:1px solid var(--border);border-radius:12px;padding:10px 12px;font-weight:800;font-size:14px}.flow-node.first{border-color:var(--accent)}
+.flow-step{padding:4px 0 4px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}.flow-arrow{color:var(--accent);font-weight:900;font-size:18px}.flow-end{padding:8px 12px;border-radius:12px;background:#2c4631;color:var(--accent);font-weight:800;font-size:14px}
+.map-role{font-size:15px;margin:18px 0 6px;color:var(--accent)}.map-item{padding:12px 0;border-bottom:1px solid var(--border)}.map-item.plan{background:linear-gradient(90deg,rgba(182,236,116,.08),transparent);border-left:3px solid var(--accent);padding-left:10px}
+.star{border:1px solid var(--border);background:#18251f;color:#d2e2d5;border-radius:50px;padding:7px 12px;font-weight:800;font-size:12px;white-space:nowrap;min-height:36px}.star.on{background:#2c4631;border-color:var(--accent);color:var(--accent)}
+.node-chip{font-size:11px;padding:5px 9px}.map-info{margin-top:14px;padding:12px;border:1px solid var(--border);border-radius:12px;background:#18251f}
+.badge.red{background:#5a2620;color:#ffb4a8}
+.inj{padding:12px 0;border-bottom:1px solid var(--border)}.inj select{min-height:38px;background:#101b18;color:var(--text);border:1px solid #435448;border-radius:10px;padding:4px 8px}
+.partner-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.partner-row input{grid-column:1/-1}.partner-row .btn{grid-column:1/-1}
+.mini-table{width:100%;border-collapse:collapse;font-size:13px}.mini-table th{text-align:left;color:var(--muted);font-size:11px;font-weight:800;padding:6px 4px}.mini-table td{padding:8px 4px;border-top:1px solid var(--border);vertical-align:middle}.mini-table .belt{height:10px;width:46px;display:inline-block;vertical-align:middle;margin-right:6px}.mini-table .belt-bar{min-width:14px}
