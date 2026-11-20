@@ -75,3 +75,11 @@ fieldset.plain{border:0;padding:0;margin:0;min-width:0}fieldset.plain legend{fon
 .inj{padding:12px 0;border-bottom:1px solid var(--border)}.inj select{min-height:38px;background:#101b18;color:var(--text);border:1px solid #435448;border-radius:10px;padding:4px 8px}
 .partner-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.partner-row input{grid-column:1/-1}.partner-row .btn{grid-column:1/-1}
 .mini-table{width:100%;border-collapse:collapse;font-size:13px}.mini-table th{text-align:left;color:var(--muted);font-size:11px;font-weight:800;padding:6px 4px}.mini-table td{padding:8px 4px;border-top:1px solid var(--border);vertical-align:middle}.mini-table .belt{height:10px;width:46px;display:inline-block;vertical-align:middle;margin-right:6px}.mini-table .belt-bar{min-width:14px}
+/* v1.0 — plano com horários, cobrança e gráficos */
+.pending-card{border-color:#d99a52;background:linear-gradient(180deg,#2a2418,var(--surface))}.pend{padding:12px 0;border-bottom:1px solid var(--border)}.pend:last-child{border:0}
+.adh-bar{display:flex;gap:2px;height:12px;border-radius:6px;overflow:hidden;margin-top:10px;background:#22352d}.adh-seg.ok{background:#0ca30c}.adh-seg.no{background:#e66767}.adh-seg.pend{background:#56685d}
+.slot-form{margin-top:12px;padding:12px;border:1px dashed #45624f;border-radius:14px}
+.chart{width:100%;height:auto;display:block;margin-top:6px;overflow:visible}.chart .grid{stroke:#2b3d35;stroke-width:1}.chart .axis{fill:#9fb3a6;font-size:10px;font-weight:600}.chart .axis.on{fill:#e7f0e3;font-weight:800}.chart .sel{fill:rgba(231,240,227,.07);stroke:#4f6a5a}.chart .hit{cursor:pointer}.chart .hit:focus{outline:none}.chart .hit:focus-visible{stroke:var(--accent);stroke-width:2}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;font-weight:700;color:#d2e2d5}.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.bucket{margin-top:10px;padding:12px;border:1px solid var(--border);border-radius:12px;background:#18251f}.bucket-row{padding:9px 0;border-top:1px solid var(--border)}.bucket-row .tiny{margin-top:3px}
+.table-view{margin-top:10px}.table-view summary,.more>summary{cursor:pointer;color:var(--accent);font-weight:800;font-size:13px;padding:6px 0}.more>summary{font-size:14px;padding:12px 4px}

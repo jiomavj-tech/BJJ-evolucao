@@ -1,8 +1,15 @@
-# BJJ Evolução — v0.9 (PWA)
+# BJJ Evolução — v1.0 (PWA)
 
 Aplicativo gratuito para acompanhar a evolução no jiu-jitsu: técnicas, faixa, diário de treino e preparação física (calistenia e musculação). Funciona no celular Android pelo GitHub Pages, sem login: os dados ficam no aparelho. Código sob licença MIT.
 
 App publicado: https://jiomavj-tech.github.io/BJJ-evolucao/
+
+## O que há na v1.0
+
+- **Plano de treinos com horários** (Meu plano): duração de 1 dia, 1 semana, 1 mês ou 3 meses, e horários de jiu-jitsu e treino físico por dia da semana (ex.: BJJ de segunda a sexta, 07:00–08:00 e 19:00–22:00; calistenia na quarta, 12:00–12:40). Mostra o percentual cumprido, os motivos das faltas e a agenda de hoje.
+- **Agenda do celular:** o botão "Colocar o plano na agenda do celular" baixa um arquivo .ics com cada horário repetido até o fim do plano, aviso 15 minutos antes e lembrete de confirmar no fim. Também há o link "+ Google Agenda" por horário. O evento traz o link do app (`?confirmar=1`), que abre direto na cobrança.
+- **Cobrança:** ao abrir o app, a tela inicial lista os treinos do plano que já passaram e não foram confirmados. "✓ Fiz" pede a duração, o esforço e os parceiros de rola; "Salvar e detalhar" abre o diário completo. "✗ Não" pergunta o motivo (lesão, cansaço, trabalho/família, academia fechada, outro). Treino registrado no diário no mesmo dia conta sozinho.
+- **Evolução em gráficos:** treinos, minutos e ações no tatame (finalizações, raspagens, passagens, quedas) por semana ou mês (4 semanas, 12 semanas, 6 meses). Ao tocar numa barra aparecem os treinos daquele período, com as técnicas trabalhadas por categoria. Cada gráfico tem a opção "Ver em tabela". Os números e listas detalhados foram para "Mais números".
 
 ## O que há na v0.9
 
@@ -99,6 +106,8 @@ Para testar a PWA localmente, abra `http://localhost:8080/`. A instalação exig
 - `bjj.mjs` faixa, graus e estatísticas do diário;
 - `quick.mjs` treino por tempo (estimativa e montagem);
 - `positions.mjs` desenhos esquemáticos das posições de BJJ;
+- `schedule.mjs` plano com horários, cobrança, cumprimento e arquivo de agenda;
+- `charts.mjs` gráficos de barras empilhadas em SVG;
 - `gameplan.mjs` mapa de jogo (ataques, destinos e emendas por posição);
 - `injuries.mjs` lesões e exercícios que carregam cada região;
 - `media.mjs` fotos do usuário guardadas no celular (IndexedDB) e backup delas;

@@ -2,6 +2,7 @@ import { validBeltState, validBjjSession } from './bjj.mjs';
 import { validTechState } from './techniques.mjs';
 import { validGameplan } from './gameplan.mjs';
 import { validInjuries } from './injuries.mjs';
+import { validPlan, validPlanHistory } from './schedule.mjs';
 /** Núcleo independente de interface — Calistenia + BJJ 0.1 */
 export const VERSION = 1;
 export const DEFAULT_PROFILE = Object.freeze({
@@ -130,7 +131,7 @@ export function summarize(history, now = new Date()) {
 export function isoLocalDate(date = new Date()) { const y=date.getFullYear(),m=String(date.getMonth()+1).padStart(2,'0'),d=String(date.getDate()).padStart(2,'0');return `${y}-${m}-${d}`; }
 export function validateImport(data) {
  if (!data || data.schema!==VERSION || !data.profile || typeof data.profile!=='object' || !Array.isArray(data.history)) return false;
- if (!validBeltState(data.belt) || !validTechState(data.techniques) || !validGameplan(data.gameplan) || !validInjuries(data.injuries)) return false;
+ if (!validBeltState(data.belt) || !validTechState(data.techniques) || !validGameplan(data.gameplan) || !validInjuries(data.injuries) || !validPlan(data.plan) || !validPlanHistory(data.planHistory)) return false;
  if (data.skills!==undefined && (!data.skills || typeof data.skills!=='object' || Array.isArray(data.skills) || Object.keys(data.skills).length>20 || Object.values(data.skills).some(n=>!Number.isInteger(n)||n<0||n>6))) return false;
  const p=data.profile;
  if (typeof p.name!=='string' || p.name.length>48 ||
